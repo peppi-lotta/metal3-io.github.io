@@ -1,0 +1,25 @@
+# Seems this got stuck in a loop
+name: Check Links old
+
+on:
+  workflow_dispatch:
+  schedule:
+  - cron: "0 0 * * 0"
+  repository_dispatch: # run manually
+
+permissions: {}
+
+jobs:
+  check:
+    name: Broken Link Check
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      issues: write
+
+    steps:
+    - name: Broken Link Check
+      uses: technote-space/broken-link-checker-action@b8332d945b97f8b52eb8d7d889a1e0e37106c1a9 # v2.3.2
+      with:
+        Target: https://metal3.io/blog/2020/02/27/talk-kubernetes-finland-metal3.html

@@ -1,0 +1,1 @@
+curl -sL https://github.com/peppi-lotta/metal3-io.github.io/tree/source/_site/sitemap.xml |  grep -o "<loc>[^<]*" | sed -e 's/<[^>]*>//g'
